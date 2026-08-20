@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .welcome-card {
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      width: 420px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.6rem;
+      color: #1a202c;
+      margin-bottom: 0.75rem;
+    }
+    p {
+      font-size: 1rem;
+      color: #4a5568;
+      margin-bottom: 1.5rem;
+    }
+    #username {
+      color: #2b6cb0;
+      font-weight: 700;
+    }
+    button {
+      padding: 0.65rem 1.5rem;
+      background: #e2e8f0;
+      color: #1a202c;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #cbd5e0; }
+  </style>
+</head>
+<body>
+  <div class="welcome-card">
+    <h1>Welcome</h1>
+    <p>Signed in as: <span id="username"></span></p>
+    <button id="logout">Log out</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const user = params.get('user');
+    if (user) {
+      document.getElementById('username').textContent = user;
+    } else {
+      document.getElementById('username').textContent = 'guest';
+    }
+
+    document.getElementById('logout').addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
