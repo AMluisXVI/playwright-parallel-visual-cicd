@@ -8,6 +8,7 @@ playwright/.cache/
 
 # Personal session log (kept local only)
 SESION.md
+SESION-CICD.md
 
 # OS / editor noise
 .DS_Store
