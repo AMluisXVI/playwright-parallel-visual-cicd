@@ -26,15 +26,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright Tests
-        run: npx playwright test --update-snapshots --reporter=html
-
-      # TEMP: upload regenerated baselines so they can be committed locally
-      - name: Upload regenerated snapshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: regenerated-snapshots
-          path: tests/*.spec.ts-snapshots/*.png
+        run: npx playwright test --reporter=html
 
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v4
